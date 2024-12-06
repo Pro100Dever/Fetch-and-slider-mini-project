@@ -29,8 +29,8 @@ async function fetchPostsAPI(id) {
     createNotification('error', 'Error!', error.message)
   }
 }
-async function fetchCatsAPI(id) {
-  const url = `https://api.thecatapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=0&limit=100/${id}`
+async function fetchCatsAPI() {
+  const url = `https://api.thecatapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=0&limit=2`
   try {
     const response = await fetch(url)
     if (!response.ok) {
@@ -101,18 +101,9 @@ postsBtnRight.addEventListener('click', () => {
   counter++
   fetchPostsAPI(counter)
 })
-catsBtnLeft.addEventListener('click', () => {
-  if (counter <= 1) {
-    return
-  } else {
-    counter--
-    fetchCatsAPI(counter)
-  }
-})
-catsBtnRight.addEventListener('click', () => {
-  counter++
-  fetchCatsAPI(counter)
-})
+
+catsBtnLeft.addEventListener('click', () => fetchCatsAPI(counter))
+catsBtnRight.addEventListener('click', () => fetchCatsAPI(counter))
 
 //////////////////////////////////////////////////
 
