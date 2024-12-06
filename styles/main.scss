@@ -54,6 +54,12 @@ body {
   }
   &__content {
     margin: 35px 0 0 10px;
+    &--post {
+      height: 150px;
+    }
+    &--cat {
+      height: 370px;
+    }
   }
   &-content {
     &__title {
@@ -72,6 +78,7 @@ body {
       &--cats {
         display: block;
         text-align: center;
+        overflow: auto;
       }
     }
   }
@@ -91,21 +98,22 @@ body {
 }
 .image-block {
   max-width: 300px;
-  margin: 0 auto;
+  height: 300px;
+  margin: auto;
+  overflow: hidden;
+  margin-bottom: 15px;
   & img {
     width: 100%;
   }
-}
-
-#about-container p {
-  margin-bottom: 20px;
 }
 #posts-container,
 #cats-container,
 #about-container {
   display: none;
 }
-
+#about-container p {
+  margin-bottom: 20px;
+}
 .notifications {
   position: absolute;
   top: 0;

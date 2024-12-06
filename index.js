@@ -62,6 +62,7 @@ async function fetchKanye() {
 }
 
 function createPost(data) {
+  containerContent.classList.add('container__content--post')
   containerContent.innerHTML = `
         <h3 class="container-content__title">
           ${data.title}
@@ -73,6 +74,7 @@ function createPost(data) {
   postContainer.prepend(containerContent)
 }
 async function createCats(catsData) {
+  containerContent.classList.add('container__content--cat')
   const description = await fetchKanye()
   const [cat] = [...catsData]
   containerContent.innerHTML = `

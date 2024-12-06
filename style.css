@@ -68,6 +68,12 @@ body {
 .container__content {
   margin: 35px 0 0 10px;
 }
+.container__content--post {
+  height: 150px;
+}
+.container__content--cat {
+  height: 370px;
+}
 .container-content__title {
   font-size: 18px;
   font-weight: 700;
@@ -83,6 +89,7 @@ body {
 .container-content__description--cats {
   display: block;
   text-align: center;
+  overflow: auto;
 }
 
 .toogle {
@@ -101,20 +108,23 @@ body {
 
 .image-block {
   max-width: 300px;
-  margin: 0 auto;
+  height: 300px;
+  margin: auto;
+  overflow: hidden;
+  margin-bottom: 15px;
 }
 .image-block img {
   width: 100%;
-}
-
-#about-container p {
-  margin-bottom: 20px;
 }
 
 #posts-container,
 #cats-container,
 #about-container {
   display: none;
+}
+
+#about-container p {
+  margin-bottom: 20px;
 }
 
 .notifications {
