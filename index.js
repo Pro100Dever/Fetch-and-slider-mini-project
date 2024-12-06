@@ -6,8 +6,10 @@ const catsBtnLeft = document.querySelector('.left-toogle--cats')
 const catsBtnRight = document.querySelector('.right-toogle--cats')
 const postContainer = document.getElementById('posts-container')
 const catsContainer = document.getElementById('cats-container')
-const containerContent = document.createElement('div')
-containerContent.classList.add('container__content')
+const containerCatContent = document.createElement('div')
+const containerPostContent = document.createElement('div')
+containerCatContent.classList.add('container__content')
+containerPostContent.classList.add('container__content')
 
 let counter = 1
 
@@ -62,8 +64,8 @@ async function fetchKanye() {
 }
 
 function createPost(data) {
-  containerContent.classList.add('container__content--post')
-  containerContent.innerHTML = `
+  containerPostContent.classList.add('container__content--post')
+  containerPostContent.innerHTML = `
         <h3 class="container-content__title">
           ${data.title}
         </h3>
@@ -71,13 +73,13 @@ function createPost(data) {
          ${data.body}
         </p>
   `
-  postContainer.prepend(containerContent)
+  postContainer.prepend(containerPostContent)
 }
 async function createCats(catsData) {
-  containerContent.classList.add('container__content--cat')
+  containerCatContent.classList.add('container__content--cat')
   const description = await fetchKanye()
   const [cat] = [...catsData]
-  containerContent.innerHTML = `
+  containerCatContent.innerHTML = `
     <div class='image-block'>
       <img src=${cat.url}>
     </div>
@@ -85,7 +87,7 @@ async function createCats(catsData) {
       ${description.quote}
     </p>
   `
-  catsContainer.prepend(containerContent)
+  catsContainer.prepend(containerCatContent)
 }
 
 //////////////////////////////////////////////////////////
@@ -102,8 +104,8 @@ postsBtnRight.addEventListener('click', () => {
   fetchPostsAPI(counter)
 })
 
-catsBtnLeft.addEventListener('click', () => fetchCatsAPI(counter))
-catsBtnRight.addEventListener('click', () => fetchCatsAPI(counter))
+catsBtnLeft.addEventListener('click', () => fetchCatsAPI())
+catsBtnRight.addEventListener('click', () => fetchCatsAPI())
 
 //////////////////////////////////////////////////
 
